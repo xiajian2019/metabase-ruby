@@ -53,6 +53,11 @@ module Metabase
       @connection ||= Faraday.new(url: @url) do |c|
         c.request :json, content_type: /\bjson$/
         c.response :json, content_type: /\bjson$/
+
+        if @debug
+          c.response :logger, Rails.logger, headers: true, bodies: true, log_level: :debug
+        end
+
         c.request :url_encoded, content_type: /x-www-form-urlencoded/
         c.adapter Faraday.default_adapter
         c.headers['User-Agent'] =

@@ -11,6 +11,14 @@ module Metabase
       def collections(**params)
         get('/api/collection', **params)
       end
+
+      def collection(collection_id, **params)
+        get("/api/collection/#{collection_id}", **params)
+      end
+
+      def collection_items(collection_id, **params)
+        get("/api/collection/#{collection_id}/items", **params)
+      end
     end
   end
 end
