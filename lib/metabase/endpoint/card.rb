@@ -12,6 +12,10 @@ module Metabase
         get('/api/card', **params)
       end
 
+      def update_cards(card_id, **params)
+        put("/api/card/#{card_id}", **params)
+      end
+
       # Fetch the card.
       #
       # @param card_id [Integer, String] Card ID

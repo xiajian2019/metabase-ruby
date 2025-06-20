@@ -30,10 +30,18 @@ module Metabase
 
     def request(method, path, params)
       headers = params.delete(:headers)
+      body = params.delete(:body) # 单独提取 body 参数
 
       response = connection.public_send(method, path, params) do |request|
         request.headers['X-Metabase-Session'] = @token if @token
         headers&.each_pair { |k, v| request.headers[k] = v }
+
+        # 根据请求方法设置 body 或 params
+        if [:post, :put, :patch].include?(method)
+          request.body = body || params.to_json # 支持直接传 body 或自动转 JSON
+        else
+          request.params = params # GET/DELETE 等请求的参数放在 URL 查询字符串中
+        end
       end
 
       error = Error.from_response(response)
