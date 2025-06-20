@@ -1,36 +1,18 @@
 PATH
   remote: .
   specs:
-    metabase (0.5.1)
+    metabase (0.5.2)
       faraday (>= 1.2.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    faraday (1.10.4)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0)
-      faraday-multipart (~> 1.0)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.0)
-      faraday-patron (~> 1.0)
-      faraday-rack (~> 1.0)
-      faraday-retry (~> 1.0)
+    base64 (0.2.0)
+    faraday (2.8.1)
+      base64
+      faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.1)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-multipart (1.1.1)
-      multipart-post (~> 2.0)
-    faraday-net_http (1.0.2)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday-rack (1.0.0)
-    faraday-retry (1.0.3)
-    multipart-post (2.4.1)
+    faraday-net_http (3.0.2)
     rake (13.0.3)
     ruby2_keywords (0.0.5)
 
